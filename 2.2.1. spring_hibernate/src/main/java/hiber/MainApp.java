@@ -34,7 +34,6 @@ public class MainApp {
         //getting user by car
         String series = "series3";
         int model = 3;
-//      User user = userService.getUserByCar(series, model).orElse(null);
         User user = userService.getUserByCar(series, model);
         String result = user == null ? "not found" : ": " + user.toString();
 

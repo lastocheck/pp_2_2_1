@@ -31,7 +31,7 @@ public class UserDaoImp implements UserDao {
 
    @Override
    public Optional<User> getUserByCar(String model, int series) {
-      String hql = "from User u where u.car.model = :model AND u.car.series = :series"; //also use join fetch here??
+      String hql = "from User u LEFT JOIN FETCH u.car where u.car.model = :model AND u.car.series = :series";
       TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql, User.class);
       query.setParameter("model", model);
       query.setParameter("series", series);
